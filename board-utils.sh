@@ -35,8 +35,8 @@ EOL
 # systemctl service for CAN
 touch /usr/lib/systemd/system/can.service
 cat >/usr/lib/systemd/system/can.service<< EOL
+[Unit]
 Description=CAN Network Socket
-After=multi-user.target
 
 [Service]
 Type=oneshot
