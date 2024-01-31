@@ -14,6 +14,7 @@ EOL
 apt install can-utils
 pip install python-can
 pip install canopen
+pip install PyYAML
 
 # Script to start CAN network
 touch /usr/bin/setup-can
