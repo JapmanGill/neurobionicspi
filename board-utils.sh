@@ -2,6 +2,8 @@
 
 # Update /boot/config.txt
 cat >>/boot/config.txt<< EOL
+# Enable UART3
+dtoverlay=uart3
 # Enable SPI Bus
 dtparam=spi=on"
 dtoverlay=spi0-1cs
@@ -55,6 +57,13 @@ EOL
 # Enable can.service
 systemctl daemon-reload
 systemctl enable can.service
+
+# Install MSCL Library
+wget https://github.com/LORD-MicroStrain/MSCL/releases/latest/download/python3-mscl_65.0.0_arm64.deb
+sudo dpkg -i python3-mscl_65.0.0_arm64.deb
+sudo apt install -f
+sudo cp sudo cp /usr/share/python3-mscl/mscl.py /usr/share/python3-mscl/_mscl.so /usr/local/lib/python3.9/dist-packages/
+rm -f python3-mscl_65.0.0_arm64.deb
 
 # Reboot
 reboot
