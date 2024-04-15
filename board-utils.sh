@@ -62,7 +62,8 @@ systemctl enable can.service
 wget https://github.com/LORD-MicroStrain/MSCL/releases/latest/download/python3-mscl_65.0.0_arm64.deb
 sudo dpkg -i python3-mscl_65.0.0_arm64.deb
 sudo apt install -f
-sudo cp sudo cp /usr/share/python3-mscl/mscl.py /usr/share/python3-mscl/_mscl.so /usr/local/lib/python3.9/dist-packages/
+sudo mkdir /usr/local/lib/python3.9/dist-packages/mscl
+sudo cp /usr/share/python3-mscl/mscl.py /usr/share/python3-mscl/_mscl.so /usr/local/lib/python3.9/dist-packages/mscl
 rm -f python3-mscl_65.0.0_arm64.deb
 
 # Reboot
