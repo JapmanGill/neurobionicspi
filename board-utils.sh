@@ -2,14 +2,20 @@
 
 # Update /boot/config.txt
 cat >>/boot/config.txt<< EOL
+# Disable Bluetooth
+dtoverlay=disable-bt
+
 # Enable UART3
 dtoverlay=uart3
+
 # Enable SPI Bus
 dtparam=spi=on"
 dtoverlay=spi0-1cs
 dtoverlay=spi1-1cs
+
 # Enable CAN
 dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25
+
 # Latch Switch Operation
 dtoverlay=gpio-shutdown,gpio_pin=27
 dtoverlay=gpio-poweroff,active_low=1,inactive_delay_ms=0
