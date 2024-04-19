@@ -5,7 +5,8 @@ cat >>/boot/config.txt<< EOL
 # Disable Bluetooth
 dtoverlay=disable-bt
 
-# Enable UART3
+# Enable UART
+enable_uart=1
 dtoverlay=uart3
 
 # Enable SPI Bus
