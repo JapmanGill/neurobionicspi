@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Update /boot/config.txt
-cat >>/boot/config.txt<< EOL
+cat >>/boot/firmware/config.txt<< EOL
 # Disable Bluetooth
 dtoverlay=disable-bt
 
@@ -20,6 +20,12 @@ dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25
 # Latch Switch Operation
 dtoverlay=gpio-shutdown,gpio_pin=27
 dtoverlay=gpio-poweroff,active_low=1,inactive_delay_ms=0
+EOL
+
+# Create virtual environment
+python -m venv env/neurobionics
+cat >>~/.bashrc<< EOL
+source env/neurobionics/bin/activate
 EOL
 
 # CAN packages
