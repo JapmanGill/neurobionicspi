@@ -22,7 +22,7 @@ dtoverlay=gpio-shutdown,gpio_pin=27
 dtoverlay=gpio-poweroff,active_low=1,inactive_delay_ms=0
 EOL
 
-# Create virtual environment
+# Create & activate virtual environment
 python -m venv env/neurobionics
 cat >>~/.bashrc<< EOL
 source env/neurobionics/bin/activate
