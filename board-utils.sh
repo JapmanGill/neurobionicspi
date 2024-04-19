@@ -7,6 +7,7 @@ dtoverlay=disable-bt
 
 # Enable UART
 enable_uart=1
+dtoverlay=uart1
 dtoverlay=uart3
 
 # Enable SPI Bus
