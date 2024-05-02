@@ -23,11 +23,19 @@ dtoverlay=gpio-shutdown,gpio_pin=27
 dtoverlay=gpio-poweroff,active_low=1,inactive_delay_ms=0
 EOL
 
+# Create a virtual environment
+VENV_DIR="/home/pi/.venv/neurobionics"
+mkdir -p "$VENV_DIR"
+python -m venv "$VENV_DIR"
+cat >>~/.bashrc<< EOL
+source ~/.venv/neurobionics/bin/activate
+EOL
+
 # CAN packages
 apt install can-utils
-pip install python-can --break-system-packages
-pip install canopen --break-system-packages
-pip install PyYAML --break-system-packages
+"$VENV_DIR/bin/pip" install python-can
+"$VENV_DIR/bin/pip" install canopen
+"$VENV_DIR/bin/pip" install PyYAML
 
 # Script to start CAN network
 touch /usr/bin/setup-can
