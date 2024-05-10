@@ -6,12 +6,10 @@ cat >>/boot/firmware/config.txt<< EOL
 dtoverlay=disable-bt
 
 # Enable UART
-enable_uart=1
 dtoverlay=uart1
 dtoverlay=uart3
 
 # Enable SPI Bus
-dtparam=spi=on"
 dtoverlay=spi0-1cs
 dtoverlay=spi1-1cs
 
@@ -22,6 +20,9 @@ dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25
 dtoverlay=gpio-shutdown,gpio_pin=27
 dtoverlay=gpio-poweroff,active_low=1,inactive_delay_ms=0
 EOL
+
+# I2C Tools
+apt install i2c-tools
 
 # Create a virtual environment
 VENV_DIR="/home/pi/.venv/neurobionics"
