@@ -28,7 +28,7 @@ VENV_DIR="/home/pi/.venv/neurobionics"
 mkdir -p "$VENV_DIR"
 python -m venv "$VENV_DIR"
 cat >>~/.bashrc<< EOL
-source ~/.venv/neurobionics/bin/activate
+source /home/pi/.venv/neurobionics/bin/activate
 EOL
 
 # CAN packages
@@ -78,7 +78,7 @@ systemctl enable can.service
 wget https://github.com/LORD-MicroStrain/MSCL/releases/latest/download/python3-mscl_65.0.0_arm64.deb
 sudo dpkg -i python3-mscl_65.0.0_arm64.deb
 sudo apt install -f
-sudo cp /usr/share/python3-mscl/mscl.py /usr/share/python3-mscl/_mscl.so /usr/local/lib/python3.11/dist-packages/
+sudo mv /usr/share/python3-mscl/mscl.py /usr/share/python3-mscl/_mscl.so "$VENV_DIR/lib/python3.11/site-packages"
 rm -f python3-mscl_65.0.0_arm64.deb
 
 # Reboot
