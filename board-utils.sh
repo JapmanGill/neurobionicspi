@@ -9,6 +9,10 @@ dtoverlay=disable-bt
 dtoverlay=uart1
 dtoverlay=uart3
 
+# Enable I2C
+dtoverlay=i2c0,pins_44_45
+dtoverlay=i2c1,pins_2_3
+
 # Enable SPI Bus
 dtoverlay=spi0-1cs
 dtoverlay=spi1-1cs
@@ -24,7 +28,7 @@ EOL
 # I2C Tools
 apt install i2c-tools
 
-# Create a virtual environment
+# Create a python virtual environment
 VENV_DIR="/home/pi/.venv/neurobionics"
 mkdir -p "$VENV_DIR"
 python -m venv "$VENV_DIR"
